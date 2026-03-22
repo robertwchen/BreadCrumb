@@ -1,0 +1,423 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000000000000000000001 /* BreadcrumbApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000002 /* BreadcrumbApp.swift */; };
+		A10000000000000000000002 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000003 /* AppModel.swift */; };
+		A10000000000000000000003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000004 /* ContentView.swift */; };
+		A10000000000000000000004 /* CaptureTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000005 /* CaptureTimelineView.swift */; };
+		A10000000000000000000005 /* SnapshotReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000006 /* SnapshotReviewView.swift */; };
+		A10000000000000000000006 /* ItemLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000007 /* ItemLibraryView.swift */; };
+		A10000000000000000000007 /* RegisterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000008 /* RegisterItemView.swift */; };
+		A10000000000000000000008 /* FindItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000009 /* FindItemView.swift */; };
+		A10000000000000000000009 /* BreadcrumbLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000000A /* BreadcrumbLibrary.swift */; };
+		A1000000000000000000000A /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000000B /* SearchModels.swift */; };
+		A1000000000000000000000B /* TimelineSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000000C /* TimelineSnapshot.swift */; };
+		A1000000000000000000000C /* TrackedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000000D /* TrackedItem.swift */; };
+		A1000000000000000000000D /* CameraSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000000E /* CameraSessionController.swift */; };
+		A1000000000000000000000E /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000000F /* SearchService.swift */; };
+		A1000000000000000000000F /* LibraryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000010 /* LibraryStore.swift */; };
+		A10000000000000000000010 /* ImageSimilarityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000011 /* ImageSimilarityService.swift */; };
+		A10000000000000000000011 /* CameraCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000012 /* CameraCaptureView.swift */; };
+		A10000000000000000000012 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000013 /* EmptyStateView.swift */; };
+		A10000000000000000000013 /* StoredImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000014 /* StoredImageView.swift */; };
+		A10000000000000000000014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000016 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B100000000000000000000001 /* Breadcrumb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breadcrumb.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B100000000000000000000002 /* BreadcrumbApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadcrumbApp.swift; sourceTree = "<group>"; };
+		B100000000000000000000003 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		B100000000000000000000004 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B100000000000000000000005 /* CaptureTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureTimelineView.swift; sourceTree = "<group>"; };
+		B100000000000000000000006 /* SnapshotReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotReviewView.swift; sourceTree = "<group>"; };
+		B100000000000000000000007 /* ItemLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLibraryView.swift; sourceTree = "<group>"; };
+		B100000000000000000000008 /* RegisterItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterItemView.swift; sourceTree = "<group>"; };
+		B100000000000000000000009 /* FindItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindItemView.swift; sourceTree = "<group>"; };
+		B10000000000000000000000A /* BreadcrumbLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadcrumbLibrary.swift; sourceTree = "<group>"; };
+		B10000000000000000000000B /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
+		B10000000000000000000000C /* TimelineSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineSnapshot.swift; sourceTree = "<group>"; };
+		B10000000000000000000000D /* TrackedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedItem.swift; sourceTree = "<group>"; };
+		B10000000000000000000000E /* CameraSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSessionController.swift; sourceTree = "<group>"; };
+		B10000000000000000000000F /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		B100000000000000000000010 /* LibraryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryStore.swift; sourceTree = "<group>"; };
+		B100000000000000000000011 /* ImageSimilarityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSimilarityService.swift; sourceTree = "<group>"; };
+		B100000000000000000000012 /* CameraCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureView.swift; sourceTree = "<group>"; };
+		B100000000000000000000013 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		B100000000000000000000014 /* StoredImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredImageView.swift; sourceTree = "<group>"; };
+		B100000000000000000000015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B100000000000000000000016 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D10000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C10000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				C10000000000000000000003 /* Breadcrumb */,
+				C10000000000000000000002 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C10000000000000000000002 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000000001 /* Breadcrumb.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000003 /* Breadcrumb */ = {
+			isa = PBXGroup;
+			children = (
+				C10000000000000000000004 /* App */,
+				C10000000000000000000005 /* Features */,
+				C10000000000000000000009 /* Models */,
+				C1000000000000000000000A /* Services */,
+				C1000000000000000000000F /* Shared */,
+				C10000000000000000000012 /* Resources */,
+			);
+			path = Breadcrumb;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000004 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000000002 /* BreadcrumbApp.swift */,
+				B100000000000000000000003 /* AppModel.swift */,
+				B100000000000000000000004 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000005 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				C10000000000000000000006 /* Capture */,
+				C10000000000000000000007 /* Register */,
+				C10000000000000000000008 /* Search */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000006 /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000000005 /* CaptureTimelineView.swift */,
+				B100000000000000000000006 /* SnapshotReviewView.swift */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000007 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000000007 /* ItemLibraryView.swift */,
+				B100000000000000000000008 /* RegisterItemView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000008 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000000009 /* FindItemView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000009 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000000A /* BreadcrumbLibrary.swift */,
+				B10000000000000000000000B /* SearchModels.swift */,
+				B10000000000000000000000C /* TimelineSnapshot.swift */,
+				B10000000000000000000000D /* TrackedItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C1000000000000000000000A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C1000000000000000000000B /* Camera */,
+				C1000000000000000000000C /* Search */,
+				C1000000000000000000000D /* Storage */,
+				C1000000000000000000000E /* Vision */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C1000000000000000000000B /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000000E /* CameraSessionController.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		C1000000000000000000000C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000000F /* SearchService.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		C1000000000000000000000D /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000000010 /* LibraryStore.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		C1000000000000000000000E /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000000011 /* ImageSimilarityService.swift */,
+			);
+			path = Vision;
+			sourceTree = "<group>";
+		};
+		C1000000000000000000000F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C10000000000000000000010 /* Camera */,
+				C10000000000000000000011 /* Views */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000010 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000000012 /* CameraCaptureView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000011 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000000013 /* EmptyStateView.swift */,
+				B100000000000000000000014 /* StoredImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000012 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B100000000000000000000015 /* Info.plist */,
+				B100000000000000000000016 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E10000000000000000000001 /* Breadcrumb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F10000000000000000000002 /* Build configuration list for PBXNativeTarget "Breadcrumb" */;
+			buildPhases = (
+				D10000000000000000000003 /* Sources */,
+				D10000000000000000000001 /* Frameworks */,
+				D10000000000000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Breadcrumb;
+			productName = Breadcrumb;
+			productReference = B100000000000000000000001 /* Breadcrumb.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E10000000000000000000002 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					E10000000000000000000001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = F10000000000000000000001 /* Build configuration list for PBXProject "Breadcrumb" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C10000000000000000000001;
+			productRefGroup = C10000000000000000000002 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E10000000000000000000001 /* Breadcrumb */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D10000000000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000014 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D10000000000000000000003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000002 /* AppModel.swift in Sources */,
+				A10000000000000000000009 /* BreadcrumbLibrary.swift in Sources */,
+				A10000000000000000000001 /* BreadcrumbApp.swift in Sources */,
+				A1000000000000000000000D /* CameraSessionController.swift in Sources */,
+				A10000000000000000000011 /* CameraCaptureView.swift in Sources */,
+				A10000000000000000000004 /* CaptureTimelineView.swift in Sources */,
+				A10000000000000000000003 /* ContentView.swift in Sources */,
+				A10000000000000000000012 /* EmptyStateView.swift in Sources */,
+				A10000000000000000000008 /* FindItemView.swift in Sources */,
+				A10000000000000000000010 /* ImageSimilarityService.swift in Sources */,
+				A10000000000000000000006 /* ItemLibraryView.swift in Sources */,
+				A1000000000000000000000F /* LibraryStore.swift in Sources */,
+				A10000000000000000000007 /* RegisterItemView.swift in Sources */,
+				A1000000000000000000000A /* SearchModels.swift in Sources */,
+				A1000000000000000000000E /* SearchService.swift in Sources */,
+				A10000000000000000000005 /* SnapshotReviewView.swift in Sources */,
+				A10000000000000000000013 /* StoredImageView.swift in Sources */,
+				A1000000000000000000000B /* TimelineSnapshot.swift in Sources */,
+				A1000000000000000000000C /* TrackedItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		G10000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		G10000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		G10000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Breadcrumb/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoohacks.breadcrumb;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		G10000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Breadcrumb/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoohacks.breadcrumb;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F10000000000000000000001 /* Build configuration list for PBXProject "Breadcrumb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				G10000000000000000000001 /* Debug */,
+				G10000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F10000000000000000000002 /* Build configuration list for PBXNativeTarget "Breadcrumb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				G10000000000000000000003 /* Debug */,
+				G10000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E10000000000000000000002 /* Project object */;
+}
