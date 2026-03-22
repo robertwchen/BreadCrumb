@@ -3,7 +3,8 @@ import UIKit
 
 enum AssetFolder: String {
     case references
-    case snapshots
+    case candidateEvidence
+    case eventEvidence
 }
 
 enum BreadcrumbStoreError: LocalizedError {
@@ -12,43 +13,20 @@ enum BreadcrumbStoreError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .couldNotEncodeImage:
-            return "The captured image could not be saved."
+            return "The image could not be saved."
         }
     }
 }
 
 final class LibraryStore: @unchecked Sendable {
     private let fileManager: FileManager
-    private let encoder = JSONEncoder()
-    private let decoder = JSONDecoder()
 
     init(fileManager: FileManager = .default) {
         self.fileManager = fileManager
-        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        encoder.dateEncodingStrategy = .iso8601
-        decoder.dateDecodingStrategy = .iso8601
     }
 
-    func loadLibrary() throws -> BreadcrumbLibrary {
+    func saveJPEG(_ image: UIImage, id: UUID, folder: AssetFolder, compression: CGFloat = 0.72) throws -> String {
         try ensureDirectories()
-
-        guard fileManager.fileExists(atPath: metadataURL.path) else {
-            return BreadcrumbLibrary()
-        }
-
-        let data = try Data(contentsOf: metadataURL)
-        return try decoder.decode(BreadcrumbLibrary.self, from: data)
-    }
-
-    func saveLibrary(_ library: BreadcrumbLibrary) throws {
-        try ensureDirectories()
-        let data = try encoder.encode(library)
-        try data.write(to: metadataURL, options: .atomic)
-    }
-
-    func saveJPEG(_ image: UIImage, id: UUID, folder: AssetFolder, compression: CGFloat = 0.82) throws -> String {
-        try ensureDirectories()
-
         guard let data = image.jpegData(compressionQuality: compression) else {
             throw BreadcrumbStoreError.couldNotEncodeImage
         }
@@ -64,26 +42,26 @@ final class LibraryStore: @unchecked Sendable {
         return UIImage(contentsOfFile: fileURL.path)
     }
 
-    private var rootURL: URL {
-        let baseURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first ?? fileManager.temporaryDirectory
-        return baseURL.appendingPathComponent("BreadcrumbData", isDirectory: true)
+    func resetAllData() throws {
+        if fileManager.fileExists(atPath: rootURL.path) {
+            try fileManager.removeItem(at: rootURL)
+        }
     }
 
-    private var metadataURL: URL {
-        rootURL.appendingPathComponent("library.json")
+    private var rootURL: URL {
+        let baseURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first ?? fileManager.temporaryDirectory
+        return baseURL.appendingPathComponent("BreadcrumbAssets", isDirectory: true)
     }
 
     private func ensureDirectories() throws {
         try fileManager.createDirectory(at: rootURL, withIntermediateDirectories: true, attributes: nil)
-        try fileManager.createDirectory(
-            at: rootURL.appendingPathComponent(AssetFolder.references.rawValue),
-            withIntermediateDirectories: true,
-            attributes: nil
-        )
-        try fileManager.createDirectory(
-            at: rootURL.appendingPathComponent(AssetFolder.snapshots.rawValue),
-            withIntermediateDirectories: true,
-            attributes: nil
-        )
+
+        for folder in [AssetFolder.references, .candidateEvidence, .eventEvidence] {
+            try fileManager.createDirectory(
+                at: rootURL.appendingPathComponent(folder.rawValue),
+                withIntermediateDirectories: true,
+                attributes: nil
+            )
+        }
     }
 }

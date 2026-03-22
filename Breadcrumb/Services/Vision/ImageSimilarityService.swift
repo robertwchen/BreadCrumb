@@ -25,7 +25,36 @@ final class ImageSimilarityService: @unchecked Sendable {
     ) throws -> Double {
         let lhsObservation = try featurePrint(for: lhsPath, imageLoader: imageLoader)
         let rhsObservation = try featurePrint(for: rhsPath, imageLoader: imageLoader)
+        return try distance(between: lhsObservation, and: rhsObservation)
+    }
 
+    func featurePrint(for image: UIImage) throws -> VNFeaturePrintObservation {
+        guard let cgImage = normalizedCGImage(from: image) else {
+            throw ImageSimilarityError.invalidImage
+        }
+        return try featurePrint(for: cgImage)
+    }
+
+    func featurePrint(for cgImage: CGImage) throws -> VNFeaturePrintObservation {
+        let request = VNGenerateImageFeaturePrintRequest()
+        if #available(iOS 17.0, *) {
+            request.revision = VNGenerateImageFeaturePrintRequestRevision2
+        }
+        request.imageCropAndScaleOption = .scaleFit
+
+        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        try handler.perform([request])
+
+        guard let observation = request.results?.first as? VNFeaturePrintObservation else {
+            throw ImageSimilarityError.noFeaturePrint
+        }
+        return observation
+    }
+
+    func distance(
+        between lhsObservation: VNFeaturePrintObservation,
+        and rhsObservation: VNFeaturePrintObservation
+    ) throws -> Double {
         var distance: Float = 0
         try lhsObservation.computeDistance(&distance, to: rhsObservation)
         return Double(distance)
@@ -39,18 +68,11 @@ final class ImageSimilarityService: @unchecked Sendable {
             return cached
         }
 
-        guard let image = imageLoader(relativePath), let cgImage = normalizedCGImage(from: image) else {
+        guard let image = imageLoader(relativePath) else {
             throw ImageSimilarityError.invalidImage
         }
 
-        let request = VNGenerateImageFeaturePrintRequest()
-        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
-        try handler.perform([request])
-
-        guard let observation = request.results?.first as? VNFeaturePrintObservation else {
-            throw ImageSimilarityError.noFeaturePrint
-        }
-
+        let observation = try featurePrint(for: image)
         cache.setObject(observation, forKey: relativePath as NSString)
         return observation
     }

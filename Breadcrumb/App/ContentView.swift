@@ -1,14 +1,14 @@
 import SwiftUI
 
 enum AppTab: Hashable {
-    case items
-    case capture
-    case find
+    case objects
+    case memory
+    case observe
+    case sessions
 }
 
 struct ContentView: View {
-    @EnvironmentObject private var appModel: AppModel
-    @State private var selectedTab: AppTab = .items
+    @State private var selectedTab: AppTab = .objects
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -16,26 +16,34 @@ struct ContentView: View {
                 ItemLibraryView()
             }
             .tabItem {
-                Label("Items", systemImage: "square.stack.3d.up")
+                Label("Objects", systemImage: "shippingbox")
             }
-            .tag(AppTab.items)
-
-            NavigationStack {
-                CaptureTimelineView()
-            }
-            .tabItem {
-                Label("Capture", systemImage: "camera.viewfinder")
-            }
-            .tag(AppTab.capture)
+            .tag(AppTab.objects)
 
             NavigationStack {
                 FindItemView()
             }
             .tabItem {
-                Label("Find", systemImage: "magnifyingglass")
+                Label("Memory", systemImage: "brain.head.profile")
             }
-            .tag(AppTab.find)
+            .tag(AppTab.memory)
+
+            NavigationStack {
+                CaptureTimelineView()
+            }
+            .tabItem {
+                Label("Observe", systemImage: "record.circle")
+            }
+            .tag(AppTab.observe)
+
+            NavigationStack {
+                SessionHistoryView()
+            }
+            .tabItem {
+                Label("Sessions", systemImage: "clock.arrow.circlepath")
+            }
+            .tag(AppTab.sessions)
         }
-        .tint(.indigo)
+        .tint(.orange)
     }
 }

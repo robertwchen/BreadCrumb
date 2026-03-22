@@ -27,6 +27,7 @@
 		A10000000000000000000012 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000013 /* EmptyStateView.swift */; };
 		A10000000000000000000013 /* StoredImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000014 /* StoredImageView.swift */; };
 		A10000000000000000000014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B100000000000000000000016 /* Assets.xcassets */; };
+		E10513702F6FD836007F282D /* ObjectTrackingAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E105136F2F6FD836007F282D /* ObjectTrackingAnalyzer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		B100000000000000000000014 /* StoredImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredImageView.swift; sourceTree = "<group>"; };
 		B100000000000000000000015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B100000000000000000000016 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E105136F2F6FD836007F282D /* ObjectTrackingAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTrackingAnalyzer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				B100000000000000000000011 /* ImageSimilarityService.swift */,
+				E105136F2F6FD836007F282D /* ObjectTrackingAnalyzer.swift */,
 			);
 			path = Vision;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				A10000000000000000000002 /* AppModel.swift in Sources */,
 				A10000000000000000000009 /* BreadcrumbLibrary.swift in Sources */,
 				A10000000000000000000001 /* BreadcrumbApp.swift in Sources */,
+				E10513702F6FD836007F282D /* ObjectTrackingAnalyzer.swift in Sources */,
 				A1000000000000000000000D /* CameraSessionController.swift in Sources */,
 				A10000000000000000000011 /* CameraCaptureView.swift in Sources */,
 				A10000000000000000000004 /* CaptureTimelineView.swift in Sources */,
@@ -352,7 +356,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9Y342HPPUG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Breadcrumb/Resources/Info.plist;
@@ -362,7 +366,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hoohacks.breadcrumb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.robert.Breadcrumb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -377,7 +381,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9Y342HPPUG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Breadcrumb/Resources/Info.plist;
@@ -387,7 +391,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hoohacks.breadcrumb;
+				PRODUCT_BUNDLE_IDENTIFIER = com.robert.Breadcrumb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -6,32 +6,32 @@ struct RegisterItemView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State private var name = ""
-    @State private var detail = ""
+    @State private var notes = ""
     @State private var referenceImages: [UIImage] = []
     @State private var isShowingCamera = false
     @State private var errorMessage: String?
 
     var body: some View {
         Form {
-            Section("Item") {
-                TextField("Name", text: $name)
+            Section("Tracked Object") {
+                TextField("Object name", text: $name)
                     .textInputAutocapitalization(.words)
 
-                TextField("Optional note", text: $detail, axis: .vertical)
+                TextField("Notes about where it belongs or how to recognize it", text: $notes, axis: .vertical)
                     .lineLimit(2...4)
             }
 
             Section {
-                Text("This MVP works best when you capture 2-3 clean reference photos from different angles against a simple background.")
+                Text("Reference photos are optional. Breadcrumb can discover candidates on its own, and extra photos only help future re-identification once you care about a specific object.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
 
-            Section("Reference Photos") {
+            Section("Optional Reference Photos") {
                 if referenceImages.isEmpty {
                     EmptyStateView(
                         title: "No reference photos yet",
-                        message: "Capture at least one clear photo so Breadcrumb can compare future snapshots on-device.",
+                        message: "You can save this object now and add photos later if you want stronger identity matching.",
                         systemImage: "camera.macro"
                     )
                     .listRowInsets(EdgeInsets())
@@ -40,8 +40,7 @@ struct RegisterItemView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 12) {
                             ForEach(Array(referenceImages.enumerated()), id: \.offset) { entry in
-                                let image = entry.element
-                                Image(uiImage: image)
+                                Image(uiImage: entry.element)
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 120, height: 120)
@@ -55,11 +54,11 @@ struct RegisterItemView: View {
                 Button {
                     isShowingCamera = true
                 } label: {
-                    Label("Capture reference photo", systemImage: "camera")
+                    Label("Capture optional photo", systemImage: "camera")
                 }
             }
         }
-        .navigationTitle("Register Item")
+        .navigationTitle("New Object")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
@@ -72,18 +71,18 @@ struct RegisterItemView: View {
                 Button("Save") {
                     save()
                 }
-                .disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || referenceImages.isEmpty)
+                .disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             }
         }
         .sheet(isPresented: $isShowingCamera) {
             CameraCaptureView(
                 title: "Reference Capture",
-                subtitle: "Frame the object clearly and keep it large in the shot."
+                subtitle: "Optional photos work best when the object is clear and fills most of the frame."
             ) { image in
                 referenceImages.append(image)
             }
         }
-        .alert("Couldn't Save Item", isPresented: Binding(
+        .alert("Couldn't Save Object", isPresented: Binding(
             get: { errorMessage != nil },
             set: { if !$0 { errorMessage = nil } }
         )) {
@@ -95,7 +94,7 @@ struct RegisterItemView: View {
 
     private func save() {
         do {
-            try appModel.createItem(name: name, detail: detail, referenceImages: referenceImages)
+            try appModel.createTrackedObject(name: name, notes: notes, referenceImages: referenceImages)
             dismiss()
         } catch {
             errorMessage = error.localizedDescription

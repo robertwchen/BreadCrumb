@@ -8,6 +8,7 @@ struct CameraCaptureView: View {
     let onCapture: (UIImage) -> Void
 
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openURL) private var openURL
     @StateObject private var cameraController = CameraSessionController()
     @State private var isCapturing = false
     @State private var errorMessage: String?
@@ -20,9 +21,17 @@ struct CameraCaptureView: View {
                 header
 
                 if cameraController.authorizationStatus == .authorized {
-                    CameraPreview(session: cameraController.session)
-                        .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
-                        .padding()
+                    ZStack {
+                        CameraPreviewContainer(session: cameraController.session)
+                            .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
+
+                        if !cameraController.isSessionReady {
+                            ProgressView("Starting camera...")
+                                .tint(.white)
+                                .foregroundStyle(.white)
+                        }
+                    }
+                    .padding()
                 } else {
                     permissionFallback
                         .padding(24)
@@ -44,6 +53,11 @@ struct CameraCaptureView: View {
             Button("OK", role: .cancel) { }
         } message: {
             Text(errorMessage ?? "")
+        }
+        .onChange(of: cameraController.sessionErrorMessage) { _, newValue in
+            if let newValue {
+                errorMessage = newValue
+            }
         }
     }
 
@@ -76,13 +90,23 @@ struct CameraCaptureView: View {
                 .font(.system(size: 40))
                 .foregroundStyle(.white)
 
-            Text("Camera access is needed")
+            Text(permissionTitle)
                 .font(.title3.bold())
                 .foregroundStyle(.white)
 
-            Text("Breadcrumb only captures photos when you explicitly choose to save a breadcrumb or reference image.")
+            Text(permissionMessage)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.white.opacity(0.75))
+
+            if cameraController.authorizationStatus == .denied {
+                Button("Open Settings") {
+                    guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+                    openURL(settingsURL)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.white)
+                .foregroundStyle(.black)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -101,14 +125,14 @@ struct CameraCaptureView: View {
                         .frame(width: 64, height: 64)
                 }
             }
-            .disabled(isCapturing || cameraController.authorizationStatus != .authorized)
+            .disabled(isCapturing || cameraController.authorizationStatus != .authorized || !cameraController.isSessionReady)
 
             if isCapturing {
                 ProgressView("Saving frame...")
                     .tint(.white)
                     .foregroundStyle(.white)
             } else {
-                Text("Tap once to save a single photo.")
+                Text("Tap once to save this photo.")
                     .font(.footnote)
                     .foregroundStyle(.white.opacity(0.8))
             }
@@ -131,9 +155,31 @@ struct CameraCaptureView: View {
             }
         }
     }
+
+    private var permissionTitle: String {
+        switch cameraController.authorizationStatus {
+        case .denied:
+            return "Camera access is turned off"
+        case .restricted:
+            return "Camera access is restricted"
+        default:
+            return "Camera access is needed"
+        }
+    }
+
+    private var permissionMessage: String {
+        switch cameraController.authorizationStatus {
+        case .denied:
+            return "Breadcrumb uses the camera to observe scenes, discover object candidates, and optionally capture reference photos. Enable access in Settings to continue."
+        case .restricted:
+            return "This device is not allowing camera access right now, so Breadcrumb cannot observe scenes or capture optional reference photos."
+        default:
+            return "Breadcrumb keeps captures and inferred events on this device."
+        }
+    }
 }
 
-private struct CameraPreview: UIViewRepresentable {
+struct CameraPreviewContainer: UIViewRepresentable {
     let session: AVCaptureSession
 
     func makeUIView(context: Context) -> PreviewView {
@@ -148,7 +194,7 @@ private struct CameraPreview: UIViewRepresentable {
     }
 }
 
-private final class PreviewView: UIView {
+final class PreviewView: UIView {
     override class var layerClass: AnyClass {
         AVCaptureVideoPreviewLayer.self
     }
