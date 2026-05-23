@@ -1,6 +1,8 @@
 # Breadcrumb
 
-Breadcrumb is an iPhone-first SwiftUI MVP for answering:
+iOS SwiftUI MVP that helps users recover misplaced items using local camera breadcrumbs, reference photos, and on-device visual similarity search.
+
+Built for HooHacks 2026, Breadcrumb answers:
 
 > Where did I last leave the thing I depend on?
 
@@ -46,7 +48,15 @@ Breadcrumb/
     Camera/
     Views/
   Resources/
+docs/
+  dev/
+  research/
 ```
+
+## Supporting Docs
+
+- `docs/dev/CODEX_HANDOFF.md` keeps implementation notes and next-step validation details out of the main project surface.
+- `docs/research/` contains the research memos, sources, and scorecards that shaped the MVP scope.
 
 ## Build Notes
 

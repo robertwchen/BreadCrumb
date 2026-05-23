@@ -18,7 +18,7 @@ The repository now contains:
 
 - A fresh SwiftUI iOS app scaffold in `Breadcrumb/`
 - A minimal Xcode project in `Breadcrumb.xcodeproj/`
-- Existing research/source docs from the earlier investigation
+- Supporting research/source docs under `docs/research/`
 
 ### Current MVP flow
 
@@ -71,6 +71,7 @@ The repository now contains:
 - `Breadcrumb/Resources/Info.plist`
 - `Breadcrumb/Resources/Assets.xcassets/`
 - `README.md`
+- `docs/research/`
 
 ## Important Product Decisions Already Made
 
@@ -204,17 +205,18 @@ The camera flow is functional, but may need:
 
 These were already present and still provide useful context:
 
-- `final_research_memo.md`
-- `sources.md`
-- `concept_scorecard.csv`
-- `competitors.csv`
-- `user_pain_clusters.csv`
+- `docs/research/final_research_memo.md`
+- `docs/research/OBJECT_MEMORY_RESEARCH_MEMO.md`
+- `docs/research/sources.md`
+- `docs/research/data/concept_scorecard.csv`
+- `docs/research/data/competitors.csv`
+- `docs/research/data/user_pain_clusters.csv`
 
 ## Best Prompt For The Next Codex Session
 
 Use something close to this:
 
-> Open this iOS project and finish Mac-side validation. First, make the Xcode project build and run on an actual iPhone. Then test the Breadcrumb MVP flow end-to-end, fix any camera/Vision/storage bugs, and improve the live-demo UX without expanding scope beyond the existing product decisions in `CODEX_HANDOFF.md`.
+> Open this iOS project and finish Mac-side validation. First, make the Xcode project build and run on an actual iPhone. Then test the Breadcrumb MVP flow end-to-end, fix any camera/Vision/storage bugs, and improve the live-demo UX without expanding scope beyond the existing product decisions in `docs/dev/CODEX_HANDOFF.md`.
 
 ## One-Line Summary
 

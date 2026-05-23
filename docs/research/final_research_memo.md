@@ -137,7 +137,7 @@ The coded sample repeatedly showed that users dislike:
 - expensive subscriptions that feel like ADHD tax
 - tools that help with planning but not with doing or restarting
 
-See `user_pain_clusters.csv` for the structured export.
+See `data/user_pain_clusters.csv` for the structured export.
 
 ### 4.4 What users actually complain about
 
@@ -195,7 +195,7 @@ They under-serve:
 
 ### 5.2 Competitor teardown summary
 
-See `competitors.csv` for the exported table. The short version:
+See `data/competitors.csv` for the exported table. The short version:
 
 | Competitor | Best at | Weakest point for this problem |
 | --- | --- | --- |
@@ -528,9 +528,9 @@ Reason: AI is genuinely useful here because the product must compress messy cont
 
 ### 16.2 Exported tables
 
-- `competitors.csv`
-- `user_pain_clusters.csv`
-- `concept_scorecard.csv`
+- `data/competitors.csv`
+- `data/user_pain_clusters.csv`
+- `data/concept_scorecard.csv`
 - `sources.md`
 
 ### 16.3 Final decision summary
